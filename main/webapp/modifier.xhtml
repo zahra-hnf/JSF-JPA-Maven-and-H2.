@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Modifier  les ordinateurs</title>
+</h:head>
+<h:body>
+<div class="container">
+<h3 class="center">Modifier les ordinateurs</h3>
+	<h:form>
+		<h:panelGrid columns="2" cellspacing="20" border="1">
+			<f:facet name="header">
+				<h:outputText value="Modifier les ordinateurs"></h:outputText>
+			</f:facet>
+		
+			<h:outputText value="Code"></h:outputText>
+			<h:inputText value="#{ordinateur.code}"></h:inputText>
+			
+			
+			<h:outputText value="Nom"></h:outputText>
+			<h:inputText value="#{ordinateur.nom}"></h:inputText>
+			
+			
+			<h:outputText value="Adresse ip"></h:outputText>
+			<h:inputText value="#{ordinateur.adresseIP}"></h:inputText>
+			
+			<h:outputText value="Code de la salle"></h:outputText>
+			<h:inputText value="#{ordinateur.code_salle}"></h:inputText>
+			
+			<f:facet name="footer">
+			<div class="row center">
+				<h:commandButton action="#{ordinateurBean.actualiser(ordinateur)}" value="Actualiser" class="center waves-effect waves-light btn "></h:commandButton>
+				</div>
+			</f:facet>
+				
+		</h:panelGrid>
+	</h:form>
+	</div>
+</h:body>
+</html>

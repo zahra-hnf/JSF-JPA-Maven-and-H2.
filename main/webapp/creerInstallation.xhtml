@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Nouvelle installation</title>
+</h:head>
+<h:body>
+
+<div class="container">
+<h3 class="center">Ajouter une nouvelle intallation</h3>
+	<h:form>
+		<h:panelGrid>
+			<h:outputText value="code"></h:outputText>
+			<h:inputText value="#{installation.code_installation}"></h:inputText>
+
+			
+			<h:outputText value="Date"></h:outputText>
+			<h:inputText value="#{installation.dateinstall}">
+				<f:convertDateTime dateStyle="full" type="date" pattern="yyyy/MM/dd"/>
+			</h:inputText>
+
+			<h:outputText value="Version"></h:outputText>
+			<h:inputText value="#{installation.version}"></h:inputText>
+			
+			
+			<h:outputText value="Code de l'ordinateur"></h:outputText>
+			<h:inputText value="#{installation.code_ordinateur}"></h:inputText>
+			
+			<h:outputText value="Code du logiciel"></h:outputText>
+			<h:inputText value="#{installation.code_logiciel}"></h:inputText>
+			
+			<f:facet name="footer">
+			<div class="row center">
+				<h:commandButton action="#{installationBean.sauvegarder(installation)}"
+					value="sauvegarder" class="center waves-effect waves-light btn "></h:commandButton>
+			</div>
+			</f:facet>
+		</h:panelGrid>
+	</h:form>
+</div>
+</h:body>
+</html>

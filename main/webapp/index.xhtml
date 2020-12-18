@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Accueil</title>
+</h:head>
+<h:body>
+ <div class="container">
+	<h1 class="center teal-text text-lighten-1">Projet Architecture logiciel</h1>
+	<h2 class="center grey-text text-teal lighten-2">Géstion d'un parc informatique</h2>
+	<h2 class="center  blue-grey-text text-lighten-2">Entite Ordinateur</h2>
+	<h:form>
+		
+		<h:commandButton action="#{ordinateurBean.nouveau()}" value="Nouveau ordinateur" class="center waves-effect waves-light btn "></h:commandButton>
+		
+		<h:dataTable value = "#{ordinateurBean.selectionner()}" var="ordinateur" border="1">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{ordinateur.code}"></h:outputText>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">nom</f:facet>
+				<h:outputText value="#{ordinateur.nom}"></h:outputText>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Adresse IP</f:facet>
+				<h:outputText value="#{ordinateur.adresseIP}"></h:outputText>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Nom de la salle</f:facet>
+				<h:outputText value="#{ordinateur.salle.nom}"></h:outputText>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Actualiser</f:facet>
+				<h:commandButton action="#{ordinateurBean.actualiser(ordinateur)}" value="Actualisr" class="left waves-effect waves-light btn" ></h:commandButton>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Modifier</f:facet>
+				<h:commandButton action="#{ordinateurBean.modifier(ordinateur.code)}" value="Modifier" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Supprimer</f:facet>
+				<h:commandButton action="#{ordinateurBean.supprimer(ordinateur.code)}" value="Supprimer" class="left waves-effect waves-light btn" ></h:commandButton>
+			</h:column>
+		</h:dataTable>
+	</h:form>	
+		
+<h2 class="center blue-text text-grey darken-2">Entite salle</h2>
+	<h:form>
+	
+		<h:commandButton action="#{salleBean.nouveau()}" value="Nouvelle salle" class="left waves-effect waves-light btn "></h:commandButton>
+		<h:dataTable value = "#{salleBean.selectionner()}" var="salle" border="1">
+			<h:column>
+				<f:facet name="header">Code de la salle</f:facet>
+				<h:outputText value="#{salle.CODE_SALLE}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Code de la salle</f:facet>
+				<h:outputText value="#{salle.nom}"></h:outputText>
+			</h:column>
+			
+			
+			
+			<h:column>
+				<f:facet name="header">Actualiser</f:facet>
+				<h:commandButton action="#{salleBean.actualiser(salle)}" value="Actualiser" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Modifier</f:facet>
+				<h:commandButton action="#{salleBean.modifier(salle.CODE_SALLE)}" value="Modifier" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Supprimer</f:facet>
+				<h:commandButton action="#{salleBean.supprimer(salle.CODE_SALLE)}" value="Supprimer" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+	
+<h2 class="center blue-text text-grey darken-2">Entite Formation</h2>	
+	<h:form>
+		<h:commandButton action="#{formationBean.nouveau()}" value="Nouvelle formation" class="left waves-effect waves-light btn "></h:commandButton>
+		<h:dataTable value = "#{formationBean.selectionner()}" var="formation" border="1">
+			<h:column>
+				<f:facet name="header">Code de la formation</f:facet>
+				<h:outputText value="#{formation.code_formation}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nom de la formation</f:facet>
+				<h:outputText value="#{formation.nom}"></h:outputText>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Actualiser</f:facet>
+				<h:commandButton action="#{formationBean.actualiser(formation)}" value="Actualiser" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Modifier</f:facet>
+				<h:commandButton action="#{formationBean.modifier(formation.code_formation)}" value="Modifier" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Supprimer</f:facet>
+				<h:commandButton action="#{formationBean.supprimer(formation.code_formation)}" value="Supprimer" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+			
+		</h:dataTable>
+	</h:form>
+<h2 class="center blue-text text-darken-2">Entite Installation</h2>	
+	<h:form>
+	<h:commandButton action="#{installationBean.nouveau()}" value="Nouvelle installation" class="left waves-effect waves-light btn "></h:commandButton>
+	<h:dataTable value = "#{installationBean.selectionner()}" var="installation" border="1">
+	 	<h:column>
+				<f:facet name="header">Code de l'installation</f:facet>
+				<h:outputText value="#{installation.code_installation}"></h:outputText>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Date de l'installatiton</f:facet>
+				<h:outputText value="#{installation.dateinstall}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Version</f:facet>
+				<h:outputText value="#{installation.version}"></h:outputText>
+			</h:column>
+			
+			
+			<h:column>
+				<f:facet name="header">Nom de l'ordinateur</f:facet>
+				<h:outputText value="#{installation.ordinateur.nom}"></h:outputText>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Code du logiciel</f:facet>
+				<h:outputText value="#{installation.logiciel.nom}"></h:outputText>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Actualiser</f:facet>
+				<h:commandButton action="#{installationBean.actualiser(installation)}" value="Actualiser" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+				<h:column>
+				<f:facet name="header">Modifier</f:facet>
+				<h:commandButton action="#{installationBean.modifier(installation.code_installation)}" value="Modifier" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Supprimer</f:facet>
+				<h:commandButton action="#{installationBean.supprimer(installation.code_installation)}" value="Supprimer" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+	 </h:dataTable>
+	</h:form>
+	<h2 class="center blue-text text-grey darken-2">Entite Logiciel</h2>
+	<h:form>
+		<h:commandButton action="#{logicielBean.nouveau()}" value="Nouveau logiciel" class="left waves-effect waves-light btn "></h:commandButton>
+		<h:dataTable value = "#{logicielBean.selectionner()}" var="logiciel" border="1">
+			<h:column>
+				<f:facet name="header">Code du logiciel</f:facet>
+				<h:outputText value="#{logiciel.code_logiciel}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nom du logiciel</f:facet>
+				<h:outputText value="#{logiciel.nom}"></h:outputText>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Actualiser</f:facet>
+				<h:commandButton action="#{logicielBean.actualiser(logiciel)}" value="Actualiser" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+			
+
+			<h:column>
+				<f:facet name="header">Modifier</f:facet>
+				<h:commandButton action="#{logicielBean.modifier(logiciel.code_logiciel)}" value="Modifier" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Supprimer</f:facet>
+				<h:commandButton action="#{logicielBean.supprimer(logiciel.code_logiciel)}" value="Supprimer" class="left waves-effect waves-light btn "></h:commandButton>
+			</h:column>
+			
+		</h:dataTable>
+	</h:form>
+	</div>
+
+</h:body>
+</html>

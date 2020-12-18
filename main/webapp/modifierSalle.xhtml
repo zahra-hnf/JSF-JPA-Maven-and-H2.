@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Modifier  la salle</title>
+</h:head>
+<h:body>
+<div class="container">
+<h3 class="center">Modifier salle</h3>
+	<h:form>
+		<h:panelGrid columns="2" cellspacing="20" border="1">
+			<f:facet name="header">
+				<h:outputText value="Modifier la salle"></h:outputText>
+			</f:facet>
+		
+	
+			<h:outputText value="Nom"></h:outputText>
+			<h:inputText value="#{salle.CODE_SALLE}"></h:inputText>
+			
+			<h:outputText value="Nom"></h:outputText>
+			<h:inputText value="#{salle.nom}"></h:inputText>
+		
+			
+			<f:facet name="footer">
+			<div class="row center">
+				<h:commandButton action="#{salleBean.actualiser(salle)}" value="Actualiser" class="center waves-effect waves-light btn "></h:commandButton>
+				</div>
+			</f:facet>
+				
+		</h:panelGrid>
+	</h:form>
+	</div>
+</h:body>
+</html>
